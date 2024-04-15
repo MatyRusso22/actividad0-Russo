@@ -1,6 +1,12 @@
 from django.contrib import admin
+from .models import Question, Choice
 
-from .models import Question
+class ChoiceInline(admin.TabularInline):
+    model = Choice
+    extra = 3  # Permite agregar hasta 3 opciones de respuesta al mismo tiempo
 
-admin.site.register(Question)
-# Register your models here.
+class QuestionAdmin(admin.ModelAdmin):
+    inlines = [ChoiceInline]
+
+admin.site.register(Question, QuestionAdmin)
+admin.site.register(Choice)
