@@ -19,7 +19,7 @@ from django.urls import include, path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="home.html"), name="home"),  # Ruta raíz redirigida a la página de inicio
+    path("", TemplateView.as_view(template_name="index.html"), name="index"),  # Ruta raíz redirigida a index.html
     path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
 ]
